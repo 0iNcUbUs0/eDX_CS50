@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <cs50.h>
+#include <string.h>
+#include <ctype.h>
+int main(void)
+{
+    //getting the string from user
+    string s=get_string();
+    //flag variable used to detect the previous character encountered is string or char
+    bool flag=false;
+    for(int i=0,l=strlen(s);i<l;i++)
+    {
+        if(s[i]==' ')
+            {
+                flag=false;
+            }
+        else if(flag==false)
+        {
+            printf("%c",toupper(s[i]));
+            flag=true;
+        }
+    }
+    printf("\n");
+}

@@ -1,0 +1,9 @@
+0.  It is the longest word in the English language. A lung disease caused by the inhalation of very fine silica dust, causing inflammation in the lungs.
+1.  Returns information about all the resources used by the current thread. It can be used to benchmark performance.
+2.  16 members.
+3.  To determine the resource use at the point in time before and after the event. 
+4.  Speller.c reads words from the file character by character until the end of file reached. If the character is a letter then it is added to the word
+    allow only alphabetical characters and apostrophes and ignore alphabetical strings too long to be words. On finding a  whole new word, terminates current word
+    updates the counter and prints the word if misspelled.
+5.  It provides much more control over characters such as "able to account for numerical inputs".
+6.  This is because they are not allowed to change.

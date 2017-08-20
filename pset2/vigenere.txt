@@ -1,0 +1,66 @@
+#include <stdio.h>
+#include <cs50.h>
+#include <string.h>
+#include<stdlib.h>
+#include <ctype.h>
+int main(int args, string argv[])
+{
+    if ( args != 2 )    
+    {
+    printf ("Usage: ./vigenere k\n");
+    return 1;
+    }
+    for(int i=0, o=strlen(argv[1]);i<o;i++)
+    {
+        if(!isalpha(argv[1][i]))
+        {
+           printf ("Usage: ./vigenere k\n");
+            return 1; 
+        }
+    }
+    printf("plaintext: ");
+    string s=get_string();
+    string key=argv[args-1];
+    int len=strlen(key);
+    int count=0;
+    printf("ciphertext: ");
+    for(int i=0, l=strlen(s);i<l;i++)
+    {
+        if(isalpha(s[i]))
+        {
+            int tmp=0;
+            if(isupper(s[i]))
+            {
+                if(isupper(key[count%len]))
+                {
+                    tmp=key[count%len]-65;
+                }
+                else
+                {
+                    tmp=key[count%len]-97;
+                }
+                printf("%c",((((s[i])-65)+tmp)%26)+65);
+                count++;
+            }
+            else if(islower(s[i]))
+            {
+                if(isupper(key[count%len]))
+                {
+                    tmp=key[count%len]-65;
+                }
+                else
+                {
+                    tmp=key[count%len]-97;
+                }
+                printf("%c",((((s[i])-97)+tmp)%26)+97);
+                count++;
+            }
+        }
+        else
+        {
+            printf("%c",s[i]);
+        }
+        
+    }
+   printf("\n");
+}

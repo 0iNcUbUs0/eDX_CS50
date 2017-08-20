@@ -1,0 +1,39 @@
+1.  stdint.h is a header file in C standard library providing a set of typedefs that specify exact width integer types
+
+2.  It makes clear that you intend to use the data a specific way. uint24_t means an integer that is exactly 24 bits wide.
+u prefix - unsigned integer, capable of representing only positive  values
+signed intefer - represents positive or negative values
+
+uint8_t - represents 8 bits or 1 byte of memory
+uint32_t - represents 32 bit memory type (unsigned/positve)
+int32_t - signed 32 bit type capable of representing -2,147,483,648 to 2,147,483,647. (like a long)
+uint16_t - 16 bit memory type capable of representing 0 to 65,535.
+
+3.  BYTE - 8 bits or 1 byte
+    WORD - By convention WORD is considered 16 bits or 2 bytes.
+    DWORD - 4 bytes (32 -bit computer). 
+    LONG - 32 bits, or 4 bytes
+
+4.  The first two bytes of a BMP is a WORD and denotes bfType, which specifies the file type. It must be set to the signature 
+    word BM (0x4D42) to indicate bitmap.
+    
+5.  biSize - specifies the number of bits the BMP header/padding contains. 
+    bfSize - the size of the pixel/padding info.
+    
+6.  Normally bit maps are read starting from the bottom left hand corner and work their way up. If the biHeight is negative, 
+    the image will start from the top left and continue down.
+    
+7.  The biBitCount member of the BITMAPINFOHEADER structure determines the number of bits that define each pixel and the 
+    maximum number of colors in the bitmap.
+	
+8.  Fopen may return NULL if the file does not exist or fails to open for whatever reason.
+
+9.  the program is reading in 1 RGB triple at a time therefore fread is always 1 in the code.
+
+10. biWidth is the width of the bitmap in pixels. If the width is 3, padding is necessary since the scanline must be a multiple of 4.
+	3 pixels * 3 bytes per pixel = 9 bytes. 3 bytes are added to bring the scanline to 12 bytes.
+	
+11. Skips over any padding and looks for the next pixel.
+
+12. This is an integer constant which, when used as the whence argument to the fseek or fseeko function,
+	specifies that the offset provided is relative to the current file position

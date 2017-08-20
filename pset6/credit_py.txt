@@ -1,0 +1,36 @@
+import cs50
+
+while True:
+    print("Number: ",end="")
+    n=cs50.get_int()
+    if n>0:
+        break
+i=1
+sum1=0
+sum2=0
+
+while n>0:
+    if i%2==0:
+        b=n%10
+        r=(b*2//10)+(b*2%10)
+        sum2=sum2+r
+    else:
+        a=n%10
+        sum1=sum1+a
+    i=i+1
+    n=n//10
+if (sum1+sum2)%10==0:
+    if i%2==0:
+        y=(a*10)+b
+    else:
+        y=(b*10+a)
+    if (i-1==15) and (y==34 or y==37):
+        print("AMEX")
+    elif (i-1==16) and (y>=51 and y<=55):
+        print("MASTERCARD")
+    elif (i-1==13 or i-1==16) and y//10==4:
+        print("VISA")
+    else:
+        print("INVALID")
+else:
+    print("INVALID")
